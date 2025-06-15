@@ -10,7 +10,7 @@ mail:
 Réponse à : Ecrire un client Python basé sur httpx.AsyncClient qui gère une stratégie de retry, par exemple qui est résilient à 2 httpcore.ConnectError.  Les tests unitaires de ce client doivent vérifier si le bon nombre de retry est bien pris en compte.
 
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: AGPL](https://img.shields.io/badge/License-AGPL-yellow.svg)](https://opensource.org/licenses/AGPL)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](http://mypy-lang.org/)
