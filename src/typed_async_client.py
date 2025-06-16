@@ -1088,7 +1088,7 @@ async def example_usage() -> None:
         print(f"❌ Erreur: {event.context.request_id} - {event.error}")
     
     # Configuration du client
-    timeout: httpx.Timeout = httpx.Timeout(connect=5.0, read=10.0)
+    timeout: httpx.Timeout = httpx.Timeout(connect=5.0, read=10.0, write=10.0, pool=5.0)
     limits: httpx.Limits = httpx.Limits(max_connections=50)
     
     async with create_async_resilient_client(
@@ -1128,13 +1128,13 @@ async def example_usage() -> None:
         )
         tasks.append(post_task)
         
-        print(f"📊 Tâches actives: {client.active_tasks_count}")
+        print(f"Tâches actives: {client.active_tasks_count}")
         
         # Attendre toutes les requêtes
         results: Dict[RequestId, RequestResult] = await client.wait_for_all_requests()
         
         # Analyser les résultats
-        print("📋 Résultats:")
+        print("Résultats:")
         for request_id, result in results.items():
             status_emoji = "✅" if result.is_success else "❌"
             print(f"{status_emoji} {request_id}: {result.status} "
@@ -1145,7 +1145,7 @@ async def example_usage() -> None:
         
         # Nettoyer les anciens résultats
         cleaned = client.clear_old_results(max_age=60.0)
-        print(f"🧹 {cleaned} anciens résultats nettoyés")
+        print(f"{cleaned} anciens résultats nettoyés")
 
 
 # Exemple d'utilisation simple

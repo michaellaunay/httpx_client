@@ -55,9 +55,9 @@ all = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/votre-username/async-resilient-http-client"
-"Bug Reports" = "https://github.com/votre-username/async-resilient-http-client/issues"
-"Source" = "https://github.com/votre-username/async-resilient-http-client"
+"Homepage" = "https://github.com/michaellaunay/httpx_client"
+"Bug Reports" = "https://github.com/michaellaunay/httpx_client/issues"
+"Source" = "https://github.com/michaellaunay/httpx_client"
 
 # Configuration pytest
 [tool.pytest.ini_options]
