@@ -2,7 +2,7 @@
 
 Client HTTP asynchrone avancé avec stratégie de retry intelligente, gestion d'événements par queue asynchrone et contextes isolés par coroutine.
 
-## 🚀 Fonctionnalités Principales
+## Fonctionnalités Principales
 
 - **Architecture Asynchrone** : Basé sur `httpx.AsyncClient` avec support complet d'asyncio
 - **Stratégie de Retry Intelligente** : Retry automatique sur `httpcore.ConnectError` uniquement
@@ -12,7 +12,7 @@ Client HTTP asynchrone avancé avec stratégie de retry intelligente, gestion d'
 - **Backoff Exponentiel** : Délais intelligents avec jitter anti-thundering herd
 - **Monitoring Intégré** : Callbacks d'événements et métriques en temps réel
 
-## 📦 Installation
+## Installation
 
 ```bash
 # Installation de base
@@ -25,7 +25,24 @@ pip install httpx[http2]
 pip install httpx[http2] pytest pytest-asyncio pytest-cov mypy black isort
 ```
 
-## 🏗️ Architecture
+## Test rapide après installation
+Créer un environnement virtuel si besoin, par exemple sur GNU/Linux :
+```bash
+# Créer un environnement nommé httpx_env
+python3 -mvenv httpx_env
+# L'activer
+source httpx_env/bin/activate
+# Installation complète pour développement
+pip install httpx[http2] pytest pytest-asyncio pytest-cov mypy black isort
+```
+
+Descendre le dépot et se positionner 
+```bash
+git clone git@github.com:michaellaunay/httpx_client.git
+cd httpx_client
+pytest
+```
+## Architecture
 
 ### Composants Principaux
 
@@ -72,7 +89,7 @@ pip install httpx[http2] pytest pytest-asyncio pytest-cov mypy black isort
    └─ Appel des callbacks
 ```
 
-## 📖 Guide d'Utilisation
+## Guide d'Utilisation
 
 ### 1. Utilisation Simple
 
@@ -253,7 +270,7 @@ async def get_external_data(data_id: str):
         )
 ```
 
-## 🔧 Configuration Avancée
+## Configuration Avancée
 
 ### Constantes Personnalisées
 
@@ -313,7 +330,7 @@ async with create_async_resilient_client() as client:
     response = await task
 ```
 
-## 🧪 Tests et Validation
+## Tests et Validation
 
 ### Structure des Tests
 
@@ -390,7 +407,7 @@ class TestCustomScenario:
                 assert result.is_success
 ```
 
-## 📊 Monitoring et Métriques
+## Monitoring et Métriques
 
 ### Callbacks d'Événements
 
@@ -465,7 +482,7 @@ async def monitored_requests():
         
         # Afficher les métriques
         stats = metrics.get_metrics()
-        print("📊 Métriques:")
+        print("Métriques:")
         for key, value in stats.items():
             print(f"  {key}: {value}")
 
@@ -494,7 +511,7 @@ class RealTimeDashboard:
     async def display_stats(self):
         """Affiche les statistiques actuelles."""
         print(f"\n{'='*50}")
-        print(f"🚀 Dashboard - {datetime.now().strftime('%H:%M:%S')}")
+        print(f"Dashboard - {datetime.now().strftime('%H:%M:%S')}")
         print(f"{'='*50}")
         print(f"Tâches actives: {self.client.active_tasks_count}")
         print(f"Résultats en cache: {self.client.results_count}")
@@ -645,7 +662,7 @@ optimal_client = AsyncResilientClient(
 )
 ```
 
-## 📚 Références et Ressources
+## Références et Ressources
 
 ### Documentation Technique
 
@@ -678,10 +695,10 @@ python examples/benchmark.py
 
 ---
 
-## 📄 License
+## License
 
-MIT License - voir le fichier `LICENSE` pour plus de détails.
+AGPL License - voir le fichier `LICENSE` pour plus de détails.
 
-## 🤝 Contribution
+## Contribution
 
 Les contributions sont les bienvenues ! Voir `CONTRIBUTING.md` pour les guidelines.
