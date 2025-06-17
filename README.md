@@ -13,7 +13,6 @@ Réponse à : Ecrire un client Python basé sur httpx.AsyncClient qui gère une 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: AGPL](https://img.shields.io/badge/License-AGPL-yellow.svg)](https://opensource.org/licenses/AGPL)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Type checked: mypy](https://img.shields.io/badge/type%20checked-mypy-blue.svg)](http://mypy-lang.org/)
 
 Un client HTTP asynchrone résilient basé sur `httpx.AsyncClient` avec stratégie de retry intelligente et gestion d'événements par queue asynchrone.
 
@@ -69,7 +68,7 @@ Ce client implémente une **stratégie basée sur le passage de contexte** où c
 
 ### Isolation par Contexte
 
-Le **contexte est une dataclass immutable** (`@dataclass(frozen=True)`) dont les instances sont **systématiquement clonées** lors des passages entre les étapes :
+Le **contexte est une `dataclass` immutable** (`@dataclass(frozen=True)`) dont les instances sont **systématiquement clonées** lors des passages entre les étapes :
 
 ```python
 @dataclass(frozen=True)
@@ -122,6 +121,28 @@ pip install httpx[http2]
 
 # Pour le développement et les tests
 pip install httpx[http2] pytest pytest-asyncio pytest-cov
+
+# Clonage du dépôt
+git clone git@github.com:michaellaunay/httpx_client.git
+```
+
+## Tests
+
+Pour installer l'environnement de test.
+```bash
+# Créer un environnement nommé httpx_env
+python3 -mvenv httpx_env
+# L'activer
+source httpx_env/bin/activate
+# Installation complète pour développement
+pip install httpx[http2] pytest pytest-asyncio pytest-cov mypy black isort
+```
+
+Descendre le dépot et se positionner dedans.
+```bash
+git clone git@github.com:michaellaunay/httpx_client.git
+cd httpx_client
+pytest
 ```
 
 ## Utilisation Rapide
